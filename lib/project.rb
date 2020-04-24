@@ -9,9 +9,11 @@ class Project
     end
 
     def backers
-        ProjectBacker.all.select do |backer|
+        finished_projects = ProjectBacker.all.select do |backer|
             backer.project == self
         end
+        finished_projects.map do |pb|
+            pb.backer
+        end
     end
-    
 end
