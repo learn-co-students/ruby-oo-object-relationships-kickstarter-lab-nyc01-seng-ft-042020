@@ -15,4 +15,12 @@ class Backer
         ProjectBacker.new(project, self)
     end
 
-endg
+    def backed_projects
+        project_backer_instances = ProjectBacker.all.select do |project|
+            project.backer == self
+        end
+        project_backer_instances.map do |instance|
+            instance.project
+        end
+    end
+end
