@@ -1,10 +1,11 @@
- require 'pry'
+#  require 'pry'
 class ProjectBacker
-    attr_accessor :backer, :project
+    attr_reader :project, :backer
+
     @@all =[]
-    def initialize(backer, project)
-        @backer = backer
+    def initialize(project, backer)
         @project = project
+        @backer = backer
         ProjectBacker.all << self
         #@@all << self
     end
@@ -13,4 +14,4 @@ class ProjectBacker
         @@all
     end
 end
-binding.pry
+# binding.pry
